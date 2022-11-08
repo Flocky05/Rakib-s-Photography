@@ -43,12 +43,12 @@ export const Nav = () => {
                             </li>
                             <li>
                                 <a
-                                    href="/"
+                                    href="/blog"
                                     aria-label="Product pricing"
                                     title="Product pricing"
                                     class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                                 >
-                                    Pricing
+                                    Blog
                                 </a>
                             </li>
                             <li>
@@ -66,7 +66,7 @@ export const Nav = () => {
                     <ul class="flex items-center hidden space-x-8 lg:flex">
                         <li>
                             <a
-                                href="/"
+                                href="/signin"
                                 aria-label="Sign in"
                                 title="Sign in"
                                 class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"

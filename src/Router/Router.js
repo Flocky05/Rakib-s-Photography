@@ -1,6 +1,7 @@
 import Home from "../Pages/Home/Header/Home";
 import Footer from "../Pages/Shared/Footer/Footer";
 import Nav from "../Pages/Shared/Nav/Nav";
+import SignIn from "../Pages/SignIn/SignIn";
 import Header, { SignUp } from "../Pages/SignUp/SignUP";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -25,6 +26,10 @@ export const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '/signin',
+                element: <SignIn></SignIn>
             }
         ]
 
