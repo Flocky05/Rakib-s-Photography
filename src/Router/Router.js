@@ -1,5 +1,6 @@
 import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Header/Home";
+import Services from "../Pages/Home/Services/Services";
 import Footer from "../Pages/Shared/Footer/Footer";
 import Nav from "../Pages/Shared/Nav/Nav";
 import SignIn from "../Pages/SignIn/SignIn";
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/services',
+                element: <Services></Services>
             }
         ]
 

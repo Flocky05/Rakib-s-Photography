@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <div class="bg-gray-900">
+        <div class="bg-gray-200">
             <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div class="relative flex items-center justify-between">
                     <div class="flex items-center">
@@ -16,7 +17,7 @@ export const Nav = () => {
                         >
 
                             <img className='w-16' src="https://cdn-icons-png.flaticon.com/512/12/12656.png" alt="" />
-                            <span class="ml-2 text-xl font-bold tracking-wide text-gray-100 ">
+                            <span class="ml-2 text-xl font-bold tracking-wide  ">
                                 Rakib's Photography
                             </span>
                         </a>
@@ -26,17 +27,17 @@ export const Nav = () => {
                                     href="/home"
                                     aria-label="Our product"
                                     title="Our product"
-                                    class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                    class="font-medium tracking-wide transition-colors duration-200 hover:text-teal-accent-400"
                                 >
                                     Home
                                 </a>
                             </li>
                             <li>
                                 <a
-                                    href="/"
+                                    href="/services"
                                     aria-label="Our product"
                                     title="Our product"
-                                    class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                    class="font-medium tracking-widetransition-colors duration-200 hover:text-teal-accent-400"
                                 >
                                     All Events
                                 </a>
@@ -46,7 +47,7 @@ export const Nav = () => {
                                     href="/blog"
                                     aria-label="Product pricing"
                                     title="Product pricing"
-                                    class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                    class="font-medium tracking-wide transition-colors duration-200 hover:text-teal-accent-400"
                                 >
                                     Blog
                                 </a>
@@ -56,7 +57,7 @@ export const Nav = () => {
                                     href="/"
                                     aria-label="About us"
                                     title="About us"
-                                    class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                    class="font-medium tracking-wide  transition-colors duration-200 hover:text-teal-accent-400"
                                 >
                                     About us
                                 </a>
@@ -69,20 +70,20 @@ export const Nav = () => {
                                 href="/signin"
                                 aria-label="Sign in"
                                 title="Sign in"
-                                class="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                class="font-medium tracking-wide  transition-colors duration-200 hover:text-teal-accent-400"
                             >
                                 Sign in
                             </a>
                         </li>
                         <li>
-                            <a
-                                href="/signup"
-                                class="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                            <Link
+                                to="/signup"
+                                class="font-medium inline-flex items-center justify-center h-12 px-6 rounded hover:text-xl hover:text-orange-600 "
                                 aria-label="Sign up"
                                 title="Sign up"
                             >
                                 Sign up
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                     <div class="lg:hidden">
