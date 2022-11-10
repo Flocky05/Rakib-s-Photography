@@ -1,9 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexs/AuthProvider/AuthProvider';
+import { IoLogoGoogle } from "react-icons/io5";
+import { GoogleAuthProvider } from 'firebase/auth';
+import toast from 'react-hot-toast';
 
 export const SignIn = () => {
-    const { signIn, loading } = useContext(AuthContext);
+    const { signIn, providerLogin, setLoading } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
 
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -16,6 +20,7 @@ export const SignIn = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, email, password);
+
 
         signIn(email, password)
             .then(result => {
@@ -30,6 +35,21 @@ export const SignIn = () => {
                 setError(error.message);
             });
 
+    }
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true });
+                toast.success('Successfully Login');
+            })
+            .catch(error => {
+                console.error(error);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
     }
     return (
         <div className="relative">
@@ -106,6 +126,19 @@ export const SignIn = () => {
                                     </div>
                                     <p className='text-center'>Have no account <Link className='text-blue-600 hover:text-blue-700 font-bold' to="/signup">Sign Up</Link> </p>
                                 </form>
+                                <div className="mt-4 mb-2 sm:mb-4">
+                                    <button onClick={handleGoogleSignIn}
+                                        type="submit"
+                                        className="bg-blue-600 hover:bg-blue-700 text-white w-full p-2 rounded-lg"
+                                    >
+                                        <div className='flex space-x-5 justify-around algin-iteam-center px-8'>
+                                            <IoLogoGoogle></IoLogoGoogle>
+                                            <div>
+                                                SignIn with Google
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

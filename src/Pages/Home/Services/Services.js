@@ -14,7 +14,7 @@ const Services = () => {
             <div className='text-center'>
                 <h2>There are {services.length} times data</h2>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 p-4 gap-8 APP'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 w-max mx-auto md:grid-cols-2 p-4 gap-8'>
                 {
                     services?.map(service => <ServiceCard
                         key={service._id}

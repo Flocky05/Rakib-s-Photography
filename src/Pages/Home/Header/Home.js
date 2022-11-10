@@ -60,7 +60,7 @@ export const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 p-4 gap-8 justify-center items-center mt-8'>
+            <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 p-4 gap-8 w-max mx-auto mt-8'>
                 {
                     services?.map(service => <ServiceCard
                         key={service._id}
