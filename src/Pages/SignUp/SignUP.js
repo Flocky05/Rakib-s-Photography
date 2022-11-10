@@ -5,8 +5,10 @@ import { AuthContext } from '../../Contexs/AuthProvider/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
 import toast from 'react-hot-toast';
 import img1 from '../../images/google/google.png'
+import useChangeTitle from '../../hooks/changeTitle';
 
 export const SignUp = () => {
+    useChangeTitle('SignUp');
     const { signIn, providerLogin, setLoading, createUser } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const navigate = useNavigate();

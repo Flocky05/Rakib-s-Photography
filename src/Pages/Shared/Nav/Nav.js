@@ -67,7 +67,7 @@ export const Nav = () => {
                                 </Link>
                             </li> <li>
                                 <Link
-                                    to="/"
+                                    to="/aboutme"
                                     aria-label="About us"
                                     title="About us"
                                     class="font-medium tracking-wide  transition-colors duration-200 hover:text-teal-accent-400"

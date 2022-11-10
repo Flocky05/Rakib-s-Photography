@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useChangeTitle from '../../../hooks/changeTitle';
 import img from '../../../images/Home/home.webp'
 import ServiceCard from '../Services/ServiceCard/ServiceCard';
 
 
 export const Home = () => {
     const [services, setServices] = useState([]);
+    useChangeTitle('Home')
 
     useEffect(() => {
         fetch(`http://localhost:5000/services?size=3`)

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import useChangeTitle from '../../hooks/changeTitle';
 
 const Item = ({ title, children }) => {
+    useChangeTitle('Blog');
     const [isOpen, setIsOpen] = useState(false);
     return (
         <div className="border rounded shadow-sm">

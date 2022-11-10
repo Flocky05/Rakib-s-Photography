@@ -1,3 +1,4 @@
+import AboutMe from "../Pages/AboutMe/AboutMe";
 import AddService from "../Pages/AddServices/AddService";
 import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Header/Home";
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
             {
                 path: '/addservice',
                 element: <PrivetRoute><AddService></AddService></PrivetRoute>
+            },
+            {
+                path: '/aboutme',
+                element: <AboutMe></AboutMe>
             }
         ]
 

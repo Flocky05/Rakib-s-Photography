@@ -3,7 +3,9 @@ import { useLoaderData } from 'react-router-dom';
 import { IoStar, IoStarHalfOutline } from "react-icons/io5";
 import { AuthContext } from '../../../../Contexs/AuthProvider/AuthProvider';
 import axios from 'axios';
+import useChangeTitle from '../../../../hooks/changeTitle';
 const DetailPage = () => {
+    useChangeTitle('DetailPage')
     const { user } = useContext(AuthContext)
     const { title, picture, description, price, _id
     } = useLoaderData();

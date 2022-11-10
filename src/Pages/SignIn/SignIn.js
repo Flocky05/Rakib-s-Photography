@@ -1,14 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexs/AuthProvider/AuthProvider';
-import { IoLogoGoogle } from "react-icons/io5";
 import { GoogleAuthProvider } from 'firebase/auth';
 import toast from 'react-hot-toast';
 import img from '../../images/google/google.png'
+import useChangeTitle from '../../hooks/changeTitle';
 
 export const SignIn = () => {
     const { signIn, providerLogin, setLoading } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
+    useChangeTitle('SignIn');
 
     const [error, setError] = useState('');
     const navigate = useNavigate();
