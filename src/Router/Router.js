@@ -1,3 +1,4 @@
+import AddService from "../Pages/AddServices/AddService";
 import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Header/Home";
 import DetailPage from "../Pages/Home/Services/Detailpage/DetailPage";
@@ -50,11 +51,12 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`)
             },
             {
-                path: 'myreviews',
+                path: '/myreviews',
                 element: <PrivetRoute><MyReview></MyReview></PrivetRoute>
             },
             {
-
+                path: '/addservice',
+                element: <PrivetRoute><AddService></AddService></PrivetRoute>
             }
         ]
 

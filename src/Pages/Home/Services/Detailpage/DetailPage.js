@@ -23,7 +23,7 @@ const DetailPage = () => {
                 <h2 className='text-2xl text-bold text-blue-600 p-7'>Price:{price}</h2>
                 <h2 className='text-2xl flex text-blue-600 p-7'><IoStar></IoStar> <IoStar></IoStar><IoStar></IoStar><IoStar></IoStar><IoStarHalfOutline></IoStarHalfOutline></h2>
             </div>
-            <ShowReviews />
+            <ShowReviews _id={_id} />
             {/* input form */}
             <div className='flex flex-col mx-auto max-w-2xl border border-blue-700 p-10 bg-gray-100 rounded-lg'>
                 <div>
@@ -45,10 +45,10 @@ const DetailPage = () => {
 export default DetailPage;
 
 
-const ShowReviews = () => {
+const ShowReviews = ({ _id }) => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:5000/reviews').then(res => setReviews(res.data))
+        axios.get(`http://localhost:5000/reviews/${_id}`).then(res => setReviews(res.data))
     }, [])
     return (<div className=''>
         {reviews?.map(el => <div className='border my-5 border-gray-400 flex flex-col mx-auto max-w-2xl rounded-lg p-10'>
