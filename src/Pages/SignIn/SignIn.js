@@ -1,80 +1,69 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Contexs/AuthProvider/AuthProvider';
 
 export const SignIn = () => {
+    const { signIn, loading } = useContext(AuthContext);
+
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    const handleSignIn = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, email, password);
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.result;
+                console.log(user);
+                form.reset();
+                setError('');
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+                setError(error.message);
+            });
+
+    }
     return (
         <div className="relative">
             <img
-                src="https://images.pexels.com/photos/3747463/pexels-photo-3747463.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+                src="https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-56228.jpg?w=1060&t=st=1668016846~exp=1668017446~hmac=6a67b6d9493dfe9005ef2f3aaaeece117b6066c4eb9480e2a9197f688cd46677"
                 className="absolute inset-0 object-cover w-full h-full"
                 alt=""
             />
-            <div className="relative bg-gray-900 bg-opacity-75">
+            <div className="relative bg-gray-700 bg-opacity-25">
                 <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-                    <div className="flex flex-col items-center justify-between xl:flex-row">
-                        <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
-                            <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                                The quick, brown fox <br className="hidden md:block" />
-                                jumps over a{' '}
-                                <span className="text-teal-accent-400">lazy dog</span>
-                            </h2>
-                            <p className="max-w-xl mb-4 text-base text-gray-400 md:text-lg">
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                accusantium doloremque laudan, totam rem aperiam, eaque ipsa
-                                quae.
-                            </p>
-                            <a
-                                href="/"
-                                aria-label=""
-                                className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700"
-                            >
-                                Learn more
-                                <svg
-                                    className="inline-block w-3 ml-2"
-                                    fill="currentColor"
-                                    viewBox="0 0 12 12"
-                                >
-                                    <path d="M9.707,5.293l-5-5A1,1,0,0,0,3.293,1.707L7.586,6,3.293,10.293a1,1,0,1,0,1.414,1.414l5-5A1,1,0,0,0,9.707,5.293Z" />
-                                </svg>
-                            </a>
-                        </div>
+                    <div className="flex flex-col items-center xl:flex-row">
                         <div className="w-full max-w-xl xl:px-8 xl:w-5/12">
                             <div className="bg-white rounded shadow-2xl p-7 sm:p-10">
                                 <h3 className="mb-4 text-xl font-semibold sm:text-center sm:mb-6 sm:text-2xl">
                                     Sign in
                                 </h3>
-                                <form>
+                                <form onSubmit={handleSignIn}>
                                     <div className="mb-1 sm:mb-2">
                                         <label
-                                            htmlFor="firstName"
+                                            htmlFor="name"
                                             className="inline-block mb-1 font-medium"
                                         >
-                                            First name
+                                            Name
                                         </label>
                                         <input
-                                            placeholder="John"
+                                            placeholder="Name"
                                             required
                                             type="text"
                                             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                                            id="firstName"
-                                            name="firstName"
+                                            id="name"
+                                            name="name"
                                         />
                                     </div>
-                                    <div className="mb-1 sm:mb-2">
-                                        <label
-                                            htmlFor="lastName"
-                                            className="inline-block mb-1 font-medium"
-                                        >
-                                            Last name
-                                        </label>
-                                        <input
-                                            placeholder="Doe"
-                                            required
-                                            type="text"
-                                            className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                                            id="lastName"
-                                            name="lastName"
-                                        />
-                                    </div>
+
                                     <div className="mb-1 sm:mb-2">
                                         <label
                                             htmlFor="email"
@@ -83,7 +72,7 @@ export const SignIn = () => {
                                             E-mail
                                         </label>
                                         <input
-                                            placeholder="john.doe@example.org"
+                                            placeholder="email"
                                             required
                                             type="text"
                                             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
@@ -91,17 +80,31 @@ export const SignIn = () => {
                                             name="email"
                                         />
                                     </div>
+                                    <div className="mb-1 sm:mb-2">
+                                        <label
+                                            htmlFor="password"
+                                            className="inline-block mb-1 font-medium"
+                                        >
+                                            Password
+                                        </label>
+                                        <input
+                                            placeholder="password"
+                                            required
+                                            type="text"
+                                            className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                                            id="email"
+                                            name="password"
+                                        />
+                                    </div>
                                     <div className="mt-4 mb-2 sm:mb-4">
                                         <button
                                             type="submit"
-                                            className="bg-orange-700 text-white w-full p-2 rounded-lg"
+                                            className="bg-blue-600 hover:bg-blue-700 text-white w-full p-2 rounded-lg"
                                         >
-                                            Subscribe
+                                            Login
                                         </button>
                                     </div>
-                                    <p className="text-xs text-gray-600 sm:text-sm">
-                                        We respect your privacy. Unsubscribe at any time.
-                                    </p>
+                                    <p className='text-center'>Have no account <Link className='text-blue-600 hover:text-blue-700 font-bold' to="/signup">Sign Up</Link> </p>
                                 </form>
                             </div>
                         </div>

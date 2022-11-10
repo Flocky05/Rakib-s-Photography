@@ -47,15 +47,13 @@ export const SignUp = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input type="text" name='password' placeholder="password" className="input input-bordered" />
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                            </label>
+
                         </div>
                         <div className="form-control mt-6">
                             <input className="btn btn-primary" type="submit" value="Login" />
                         </div>
                     </form>
-                    <p className='text-center'>Have an account <Link className='text-orange-600 font-bold' to="/signin">Login</Link> </p>
+                    <p className='text-center '>Have an account <Link className='text-blue-600 hover:text-blue-700 font-bold' to="/signin">Login</Link> </p>
                 </div>
             </div>
         </div>
