@@ -1,8 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Contexs/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
+import { Tooltip } from 'react-tippy';
 
 export const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                toast.success('Logout Successfully');
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
 
     return (
         <div class="bg-gray-200">
@@ -59,33 +73,56 @@ export const Nav = () => {
                                     title="About us"
                                     class="font-medium tracking-wide  transition-colors duration-200 hover:text-teal-accent-400"
                                 >
-                                    About us
+                                    About me
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <ul class="flex items-center hidden space-x-8 lg:flex">
-                        <li>
-                            <a
-                                href="/signin"
-                                aria-label="Sign in"
-                                title="Sign in"
-                                class="font-medium tracking-wide  transition-colors duration-200 hover:text-teal-accent-400"
-                            >
-                                Sign in
-                            </a>
-                        </li>
-                        <li>
-                            <Link
-                                to="/signup"
-                                class="font-medium inline-flex items-center justify-center h-12 px-6 rounded hover:text-xl hover:text-orange-600 "
-                                aria-label="Sign up"
-                                title="Sign up"
-                            >
-                                Sign up
-                            </Link>
-                        </li>
-                    </ul>
+                    <>
+                        {
+                            user ?
+                                <>
+                                    <li>
+                                        <div onClick={handleLogOut}
+                                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-teal-accent-400"
+                                        >
+                                            Logout
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <Tooltip
+                                            title={user?.displayName}
+                                            position="bottom"
+                                            trigger="mouseenter"
+                                        >
+                                            <Link>
+                                                <img src={user?.photoURL ? user?.photoURL : 'https://cdn-icons-png.flaticon.com/512/149/149071.png'} alt="" className="object-cover w-10 h-10 mx-4 rounded-full dark:bg-gray-500" />
+                                            </Link>
+                                        </Tooltip>
+                                    </li>
+                                </> :
+                                <>
+                                    <li>
+                                        <Link
+                                            to="/signin"
+                                            className='font-medium tracking-wide hover:text-blue-700 hover:text-bold'
+                                            aria-label="Login"
+                                            title="Login"
+                                        >
+                                            SignIn
+                                        </Link>
+                                        <Link
+                                            to="/signup"
+                                            className='font-medium tracking-wide p-8 hover:text-blue-700 hover:text-bold'
+                                            aria-label="Login"
+                                            title="Login"
+                                        >
+                                            SignUp
+                                        </Link>
+                                    </li>
+                                </>
+                        }
+                    </>
                     <div class="lg:hidden">
                         <button
                             aria-label="Open Menu"
