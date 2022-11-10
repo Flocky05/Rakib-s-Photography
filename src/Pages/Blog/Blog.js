@@ -1,129 +1,117 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-export const Blog = () => {
+const Item = ({ title, children }) => {
+    const [isOpen, setIsOpen] = useState(false);
     return (
-        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-            <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
-                <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
-                    <img
-                        src="https://images.pexels.com/photos/2408666/pexels-photo-2408666.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500"
-                        className="object-cover w-full h-64"
-                        alt=""
-                    />
-                    <div className="p-5 border border-t-0">
-                        <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
-                            <a
-                                href="/"
-                                className="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
-                                aria-label="Category"
-                                title="traveling"
+        <div className="border rounded shadow-sm">
+            <button
+                type="button"
+                aria-label="Open item"
+                title="Open item"
+                className="flex items-center justify-between w-full p-4 focus:outline-none"
+                onClick={() => setIsOpen(!isOpen)}
+            >
+                <p className="text-lg font-medium">{title}</p>
+                <div className="flex items-center justify-center w-8 h-8 border rounded-full">
+                    <svg
+                        viewBox="0 0 24 24"
+                        className={`w-3 text-gray-600 transition-transform duration-200 ${isOpen ? 'transform rotate-180' : ''
+                            }`}
+                    >
+                        <polyline
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeMiterlimit="10"
+                            points="2,7 12,17 22,7"
+                            strokeLinejoin="round"
+                        />
+                    </svg>
+                </div>
+            </button>
+            {isOpen && (
+                <div className="p-4 pt-0">
+                    <p className="text-gray-700">{children}</p>
+                </div>
+            )}
+        </div>
+    );
+};
+const FAQ = () => {
+    return (
+        <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+            <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
+                <div class="flex flex-col mb-16 sm:text-center">
+                    <a href="/" class="mb-6 sm:mx-auto">
+                        <div class="flex items-center justify-center w-12 h-12 rounded-full bg-indigo-50">
+                            <svg
+                                class="w-10 h-10 text-deep-purple-accent-400"
+                                stroke="currentColor"
+                                viewBox="0 0 52 52"
                             >
-                                traveling
-                            </a>
-                            <span className="text-gray-600">— 28 Dec 2020</span>
-                        </p>
-                        <a
-                            href="/"
-                            aria-label="Category"
-                            title="Visit the East"
-                            className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700"
-                        >
-                            Visit the East
-                        </a>
-                        <p className="mb-2 text-gray-700">
-                            Sed ut perspiciatis unde omnis iste natus error sit sed quia
-                            consequuntur magni voluptatem doloremque.
-                        </p>
-                        <a
-                            href="/"
-                            aria-label=""
-                            className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                        >
-                            Learn more
-                        </a>
+                                <polygon
+                                    strokeWidth="3"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    fill="none"
+                                    points="29 13 14 29 25 29 23 39 38 23 27 23"
+                                />
+                            </svg>
+                        </div>
+                    </a>
+                    <div class="max-w-xl md:mx-auto sm:text-center lg:max-w-2xl">
+                        <h2 class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+                            <span class="relative inline-block">
+                                <svg
+                                    viewBox="0 0 52 24"
+                                    fill="currentColor"
+                                    class="absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block"
+                                >
+                                    <defs>
+                                        <pattern
+                                            id="ec5d8ef5-b853-4714-b94f-df28ec98eeb7"
+                                            x="0"
+                                            y="0"
+                                            width=".135"
+                                            height=".30"
+                                        >
+                                            <circle cx="1" cy="1" r=".7" />
+                                        </pattern>
+                                    </defs>
+                                    <rect
+                                        fill="url(#ec5d8ef5-b853-4714-b94f-df28ec98eeb7)"
+                                        width="52"
+                                        height="24"
+                                    />
+                                </svg>
+                                <span class="relative">The</span>
+                            </span>{' '}
+                            Blogs are here
+                        </h2>
+
                     </div>
                 </div>
-                <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
-                    <img
-                        src="https://images.pexels.com/photos/447592/pexels-photo-447592.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                        className="object-cover w-full h-64"
-                        alt=""
-                    />
-                    <div className="p-5 border border-t-0">
-                        <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
-                            <a
-                                href="/"
-                                className="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
-                                aria-label="Category"
-                                title="traveling"
-                            >
-                                traveling
-                            </a>
-                            <span className="text-gray-600">— 28 Dec 2020</span>
-                        </p>
-                        <a
-                            href="/"
-                            aria-label="Category"
-                            title="Simple is better"
-                            className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700"
-                        >
-                            Simple is better
-                        </a>
-                        <p className="mb-2 text-gray-700">
-                            Sed ut perspiciatis unde omnis iste natus error sit sed quia
-                            consequuntur magni voluptatem doloremque.
-                        </p>
-                        <a
-                            href="/"
-                            aria-label=""
-                            className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                        >
-                            Learn more
-                        </a>
-                    </div>
-                </div>
-                <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
-                    <img
-                        src="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                        className="object-cover w-full h-64"
-                        alt=""
-                    />
-                    <div className="p-5 border border-t-0">
-                        <p className="mb-3 text-xs font-semibold tracking-wide uppercase">
-                            <a
-                                href="/"
-                                className="transition-colors duration-200 text-blue-gray-900 hover:text-deep-purple-accent-700"
-                                aria-label="Category"
-                                title="traveling"
-                            >
-                                traveling
-                            </a>
-                            <span className="text-gray-600">— 28 Dec 2020</span>
-                        </p>
-                        <a
-                            href="/"
-                            aria-label="Category"
-                            title="Film It!"
-                            className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700"
-                        >
-                            Film It!
-                        </a>
-                        <p className="mb-2 text-gray-700">
-                            Sed ut perspiciatis unde omnis iste natus error sit sed quia
-                            consequuntur magni voluptatem doloremque.
-                        </p>
-                        <a
-                            href="/"
-                            aria-label=""
-                            className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
-                        >
-                            Learn more
-                        </a>
-                    </div>
+                <div class="space-y-4">
+                    <Item title="Difference between SQL and NoSQL">
+                        SQL databases are relational, NoSQL databases are non-relational.SQL databases use structured query language and have a predefined schema. NoSQL databases have dynamic schemas for unstructured data.SQL databases are vertically scalable, while NoSQL databases are horizontally scalable.SQL databases are table-based, while NoSQL databases are document, key-value, graph, or wide-column stores.SQL databases are better for multi-row transactions, while NoSQL is better for unstructured data like documents or JSON.Example of SQL databases: MySQL, PostgreSQL, Oracle, MS-SQL Server etc.Example of NoSQL databases: MongoDB, GraphQL, HBase, Neo4j, Cassandra etc
+                    </Item>
+                    <Item title="What is JWT, and how does it work?">
+                        JWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.Basically the identity provider(IdP) generates a JWT certifying user identity and Resource server decodes and verifies the authenticity of the token using secret salt / public key.User sign-in using username and password or google/facebook.Authentication server verifies the credentials and issues a jwt signed using either a secret salt or a private key.User's Client uses the JWT to access protected resources by passing the JWT in HTTP Authorization header.Resource server then verifies the authenticity of the token using the secret salt/ public key.
+                    </Item>
+                    <Item title="What is the difference between javascript and NodeJS?">
+                        The react private route component renders child components ( children ) if the user is logged in. If not logged in the user is redirected to the /login page with the return url passed in the location state property.
+                    </Item>
+                    <Item title="What is Node? How does Node work?">
+                        Javascript is a Scripting language. It is mostly abbreviated as JS. It can be said that Javascript is the updated version of the ECMA script. Javascript is a high-level programming language that uses the concept of Oops but it is based on prototype inheritance.NodeJS is a cross-platform and opensource Javascript runtime environment that allows the javascript to be run on the server-side. Nodejs allows Javascript code to run outside the browser. Nodejs comes with a lot of modules and mostly used in web development.Javascript can only be run in the browsers.We can run Javascript outside the browser with the help of NodeJS.Javascript is capable enough to add HTML and play with the DOM. Nodejs does not have capability to add HTML tags.Some of the javascript frameworks are RamdaJS, TypedJS, etc. Some of the javascript frameworks are RamdaJS, TypedJS, etc.
+                    </Item>
+                    <Item title="How does NodeJS handle multiple requests at the same time?">
+                        NodeJS server uses an EventQueue, which queues incoming client requests and an EventLoop which is an infinite loop that receives requests and processes them. This EventLoop is single threaded and acts as a listener for the EventQueue which processes incoming requests based on FIFO policy.When a new request comes in, NodeJS checks if it requires any blocking IO operations, if not, the EventLoop processes it and sends the response back to the client directly. If yes, then the request is forwarded to the thread manager, which then based on an algorithm, picks up an idle thread from the pool and lets it process the request. After completion of the request processing operation, the thread, returns the response back to the EventLoop which is then forwarded to the client. Thus, even if an incoming request needs blocking IO, the thread pool allows it to run asynchronously in the background without blocking the EventLoop and it gives a seamless experience of NodeJS handling multiple incoming requests concurrently without any persistent delays or bottlenecks.
+                    </Item>
                 </div>
             </div>
         </div>
     );
 };
 
-export default Blog;
+export default FAQ;

@@ -24,7 +24,7 @@ export const Nav = () => {
                 <div class="relative flex items-center justify-between">
                     <div class="flex items-center">
                         <Link
-                            to="/"
+                            to="/home"
                             aria-label="Company"
                             title="Company"
                             class="inline-flex items-center mr-8"

@@ -10,7 +10,7 @@ const MyReview = () => {
     console.log(reviews);
     return (
         <div className="overflow-x-auto w-full">
-            <table className="table  w-full">
+            <table className="table  w-full ">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -24,7 +24,7 @@ const MyReview = () => {
                         reviews?.map(el => <tr>
 
                             <td>
-                                <div className="flex items-center space-x-3">
+                                <div className="flex items-center space-x-3 ">
                                     <div className="avatar">
                                         <div className="mask mask-squircle w-12 h-12">
                                             <img className='w-10 h-10 rounded-full' src={el.photoURL} alt="Avatar Tailwind CSS Component" />
@@ -41,7 +41,8 @@ const MyReview = () => {
                             </td>
                             <td>{el.email}</td>
                             <td>
-                                <button className="btn btn-ghost btn-xs">details</button>
+                                <button className="btn btn-ghost btn-xs">Delete</button>
+                                <button className="btn btn-ghost btn-xs ml-3">Edit</button>
                             </td>
                         </tr>)
                     }
