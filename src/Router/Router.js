@@ -7,6 +7,7 @@ import Footer from "../Pages/Shared/Footer/Footer";
 import Nav from "../Pages/Shared/Nav/Nav";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUP";
+import PrivetRoute from "./PrivetRoute/PrivetRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Pages/Main/Main");
@@ -50,7 +51,10 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'myreviews',
-                element: <MyReview></MyReview>
+                element: <PrivetRoute><MyReview></MyReview></PrivetRoute>
+            },
+            {
+
             }
         ]
 

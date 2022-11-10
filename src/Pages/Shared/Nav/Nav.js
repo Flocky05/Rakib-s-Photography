@@ -38,7 +38,7 @@ export const Nav = () => {
                         <ul class="flex items-center hidden space-x-8 lg:flex">
                             <li>
                                 <Link
-                                    Link="/home"
+                                    to="/home"
                                     aria-label="Our product"
                                     title="Our product"
                                     class="font-medium tracking-wide transition-colors duration-200 hover:text-teal-accent-400"
