@@ -23,8 +23,8 @@ export const Nav = () => {
             <div class="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div class="relative flex items-center justify-between">
                     <div class="flex items-center">
-                        <a
-                            href="/"
+                        <Link
+                            to="/"
                             aria-label="Company"
                             title="Company"
                             class="inline-flex items-center mr-8"
@@ -34,66 +34,66 @@ export const Nav = () => {
                             <span class="ml-2 text-xl font-bold tracking-wide  ">
                                 Rakib's Photography
                             </span>
-                        </a>
+                        </Link>
                         <ul class="flex items-center hidden space-x-8 lg:flex">
                             <li>
-                                <a
-                                    href="/home"
+                                <Link
+                                    Link="/home"
                                     aria-label="Our product"
                                     title="Our product"
                                     class="font-medium tracking-wide transition-colors duration-200 hover:text-teal-accent-400"
                                 >
                                     Home
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="/services"
+                                <Link
+                                    to="/services"
                                     aria-label="Our product"
                                     title="Our product"
                                     class="font-medium tracking-widetransition-colors duration-200 hover:text-teal-accent-400"
                                 >
                                     All Events
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a
-                                    href="/blog"
+                                <Link
+                                    to="/blog"
                                     aria-label="Product pricing"
                                     title="Product pricing"
                                     class="font-medium tracking-wide transition-colors duration-200 hover:text-teal-accent-400"
                                 >
                                     Blog
-                                </a>
+                                </Link>
                             </li> <li>
-                                <a
-                                    href="/"
+                                <Link
+                                    to="/"
                                     aria-label="About us"
                                     title="About us"
                                     class="font-medium tracking-wide  transition-colors duration-200 hover:text-teal-accent-400"
                                 >
                                     About me
-                                </a>
+                                </Link>
                             </li>
                             {user?.uid && <>
                                 <li>
-                                    <a
-                                        href="/"
+                                    <Link
+                                        to="/myreviews"
                                         aria-label="Product pricing"
                                         title="Product pricing"
                                         class="font-medium tracking-wide transition-colors duration-200 hover:text-teal-accent-400"
                                     >
                                         My reviews
-                                    </a>
+                                    </Link>
                                 </li> <li>
-                                    <a
-                                        href="/"
+                                    <Link
+                                        to="/"
                                         aria-label="About us"
                                         title="About us"
                                         class="font-medium tracking-wide  transition-colors duration-200 hover:text-teal-accent-400"
                                     >
                                         Add services
-                                    </a>
+                                    </Link>
                                 </li></>}
 
                         </ul>
