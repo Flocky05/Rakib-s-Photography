@@ -2,9 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../../Contexs/AuthProvider/AuthProvider';
 import { Link } from 'react-router-dom';
+import useChangeTitle from '../../hooks/changeTitle';
+import { BeatLoader } from 'react-spinners';
 const MyReview = () => {
     const { user } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
+    useChangeTitle('My Review')
     useEffect(() => {
         axios.get(`http://localhost:5000/reviews?email=${user?.email}`).then(res => setReviews(res.data)).catch(err => console.log(err))
     }, [user?.email])
@@ -20,7 +23,7 @@ const MyReview = () => {
     }
     return (
         <div className="overflow-x-auto w-full">
-            <table className="table  w-full ">
+            {reviews?.length ? <table className="table  w-full ">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -30,7 +33,8 @@ const MyReview = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {
+
+                    <>  {
                         reviews?.map(el => <tr>
 
                             <td>
@@ -58,11 +62,11 @@ const MyReview = () => {
 
                             </td>
                         </tr>)
-                    }
+                    }</>
 
                 </tbody>
 
-            </table>
+            </table> : <div className='flex justify-center mt-[10%]'><BeatLoader color="#36d7b7" /></div>}
         </div>
     );
 };

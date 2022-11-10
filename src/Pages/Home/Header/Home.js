@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import useChangeTitle from '../../../hooks/changeTitle';
 import img from '../../../images/Home/home.webp'
 import ServiceCard from '../Services/ServiceCard/ServiceCard';
+import { BeatLoader } from 'react-spinners';
 
 
 export const Home = () => {
@@ -64,16 +65,18 @@ export const Home = () => {
             </div>
             <div>
                 <h2 className='text-4xl font-bold text-center p-6'>Some are Services are here</h2>
-                <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 p-4 gap-8 w-max mx-auto mt-8'>
-                    {
-                        services?.map(service => <ServiceCard
-                            key={service._id}
-                            service={service}
-                        >
+                {
+                    services?.length ? <div className='grid grid-cols-1 lg:grid-cols-3 w-max mx-auto md:grid-cols-2 p-4 gap-8'>
+                        {
+                            services?.map(service => <ServiceCard
+                                key={service._id}
+                                service={service}
+                            >
 
-                        </ServiceCard>)
-                    }
-                </div>
+                            </ServiceCard>)
+                        }
+                    </div> : <div className='flex justify-center mt-[10%]'><BeatLoader color="#36d7b7" /></div>
+                }
             </div>
             <div className='flex justify-end mx-28 py-3'>
                 <button>

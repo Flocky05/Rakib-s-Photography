@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import useChangeTitle from '../../hooks/changeTitle';
 const AddService = () => {
+    useChangeTitle('Add Service')
     const handleSubmit = (e) => {
         e.preventDefault()
         const form = e.target
