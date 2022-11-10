@@ -12,7 +12,7 @@ const Services = () => {
     return (
         <div className='mt-10'>
             <div className='text-center'>
-                <h2>There are {services.length} times data</h2>
+                <h2 className='text-4xl font-bold'>All Services</h2>
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-3 w-max mx-auto md:grid-cols-2 p-4 gap-8'>
                 {

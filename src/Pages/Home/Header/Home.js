@@ -60,15 +60,18 @@ export const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 p-4 gap-8 w-max mx-auto mt-8'>
-                {
-                    services?.map(service => <ServiceCard
-                        key={service._id}
-                        service={service}
-                    >
+            <div>
+                <h2 className='text-4xl font-bold text-center p-6'>Some are Services are here</h2>
+                <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 p-4 gap-8 w-max mx-auto mt-8'>
+                    {
+                        services?.map(service => <ServiceCard
+                            key={service._id}
+                            service={service}
+                        >
 
-                    </ServiceCard>)
-                }
+                        </ServiceCard>)
+                    }
+                </div>
             </div>
             <div className='flex justify-end mx-28 py-3'>
                 <button>
