@@ -27,19 +27,21 @@ const DetailPage = () => {
             </div>
             <ShowReviews _id={_id} />
             {/* input form */}
-            <div className='flex flex-col mx-auto max-w-2xl border border-blue-700 p-10 bg-gray-100 rounded-lg'>
-                <div>
-                    <h2 className='text-blue-600 text-2xl p-2'>Write your own's Opinion</h2>
-                </div>
-                <div className='flex justify-start items-center mb-4'>
-                    <img src={user?.photoURL} alt='' className='w-10 h-10 rounded-full' />
-                    <h3 className='text-bold text-xl ml-3'>{user?.displayName}</h3>
-                </div>
-                <form onSubmit={hanldeReviews}>
-                    <input className='border border-blue-600 p-4  rounded-lg w-full' type="text" name="name" placeholder='write something about us' />
-                    <button type='submit' className='bg-blue-600 rounded-lg px-4 py-2 mt-3 text-white hover:bg-blue-700'>Submit</button>
-                </form>
-            </div>
+            {
+                user?.uid ? <div className='flex flex-col mx-auto max-w-2xl border border-blue-700 p-10 bg-gray-100 rounded-lg'>
+                    <div>
+                        <h2 className='text-blue-600 text-2xl p-2'>Write your own's Opinion</h2>
+                    </div>
+                    <div className='flex justify-start items-center mb-4'>
+                        <img src={user?.photoURL} alt='' className='w-10 h-10 rounded-full' />
+                        <h3 className='text-bold text-xl ml-3'>{user?.displayName}</h3>
+                    </div>
+                    <form onSubmit={hanldeReviews}>
+                        <input className='border border-blue-600 p-4  rounded-lg w-full' type="text" name="name" placeholder='write something about us' />
+                        <button type='submit' className='bg-blue-600 rounded-lg px-4 py-2 mt-3 text-white hover:bg-blue-700'>Submit</button>
+                    </form>
+                </div> : <h1 className='text-3xl text-center'>Please login to add reviews</h1>
+            }
         </div>
     );
 };
