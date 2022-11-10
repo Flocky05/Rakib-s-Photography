@@ -4,6 +4,7 @@ import { AuthContext } from '../../Contexs/AuthProvider/AuthProvider';
 import { IoLogoGoogle } from "react-icons/io5";
 import { GoogleAuthProvider } from 'firebase/auth';
 import toast from 'react-hot-toast';
+import img from '../../images/google/google.png'
 
 export const SignIn = () => {
     const { signIn, providerLogin, setLoading } = useContext(AuthContext);
@@ -16,10 +17,8 @@ export const SignIn = () => {
     const handleSignIn = (event) => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password);
 
 
         signIn(email, password)
@@ -67,22 +66,6 @@ export const SignIn = () => {
                                     Sign in
                                 </h3>
                                 <form onSubmit={handleSignIn}>
-                                    <div className="mb-1 sm:mb-2">
-                                        <label
-                                            htmlFor="name"
-                                            className="inline-block mb-1 font-medium"
-                                        >
-                                            Name
-                                        </label>
-                                        <input
-                                            placeholder="Name"
-                                            required
-                                            type="text"
-                                            className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                                            id="name"
-                                            name="name"
-                                        />
-                                    </div>
 
                                     <div className="mb-1 sm:mb-2">
                                         <label
@@ -94,7 +77,7 @@ export const SignIn = () => {
                                         <input
                                             placeholder="email"
                                             required
-                                            type="text"
+                                            type="email"
                                             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
                                             id="email"
                                             name="email"
@@ -110,9 +93,9 @@ export const SignIn = () => {
                                         <input
                                             placeholder="password"
                                             required
-                                            type="text"
+                                            type="password"
                                             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                                            id="email"
+                                            id="password"
                                             name="password"
                                         />
                                     </div>
@@ -129,11 +112,11 @@ export const SignIn = () => {
                                 <div className="mt-4 mb-2 sm:mb-4">
                                     <button onClick={handleGoogleSignIn}
                                         type="submit"
-                                        className="bg-blue-600 hover:bg-blue-700 text-white w-full p-2 rounded-lg"
+                                        className="bg-white w-full p-2 rounded-lg border border-blue-600"
                                     >
                                         <div className='flex space-x-5 justify-around algin-iteam-center px-8'>
-                                            <IoLogoGoogle></IoLogoGoogle>
-                                            <div>
+                                            <img className='w-8' src={img} alt="" />
+                                            <div className='text-xl'>
                                                 SignIn with Google
                                             </div>
                                         </div>

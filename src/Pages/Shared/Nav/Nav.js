@@ -65,8 +65,7 @@ export const Nav = () => {
                                 >
                                     Blog
                                 </a>
-                            </li>
-                            <li>
+                            </li> <li>
                                 <a
                                     href="/"
                                     aria-label="About us"
@@ -76,9 +75,30 @@ export const Nav = () => {
                                     About me
                                 </a>
                             </li>
+                            {user?.uid && <>
+                                <li>
+                                    <a
+                                        href="/"
+                                        aria-label="Product pricing"
+                                        title="Product pricing"
+                                        class="font-medium tracking-wide transition-colors duration-200 hover:text-teal-accent-400"
+                                    >
+                                        My reviews
+                                    </a>
+                                </li> <li>
+                                    <a
+                                        href="/"
+                                        aria-label="About us"
+                                        title="About us"
+                                        class="font-medium tracking-wide  transition-colors duration-200 hover:text-teal-accent-400"
+                                    >
+                                        Add services
+                                    </a>
+                                </li></>}
+
                         </ul>
                     </div>
-                    <>
+                    <ul className='list-none'>
                         {
                             user ?
                                 <>
@@ -102,7 +122,7 @@ export const Nav = () => {
                                     </li>
                                 </> :
                                 <>
-                                    <li>
+                                    <li className='flex space-between items-center'>
                                         <Link
                                             to="/signin"
                                             className='font-medium tracking-wide hover:text-blue-700 hover:text-bold'
@@ -122,7 +142,7 @@ export const Nav = () => {
                                     </li>
                                 </>
                         }
-                    </>
+                    </ul>
                     <div class="lg:hidden">
                         <button
                             aria-label="Open Menu"

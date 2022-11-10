@@ -1,17 +1,24 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../images/SignUp/signUp.webp'
 import { AuthContext } from '../../Contexs/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+import toast from 'react-hot-toast';
+import img1 from '../../images/google/google.png'
 
 export const SignUp = () => {
-    const { createUser } = useContext(AuthContext)
+    const { signIn, providerLogin, setLoading, createUser } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(name, email, password);
+        form.reset();
 
         createUser(email, password)
             .then(result => {
@@ -20,6 +27,21 @@ export const SignUp = () => {
             })
             .catch(error => console.error(error));
 
+    }
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true });
+                toast.success('Successfully Login');
+            })
+            .catch(error => {
+                console.error(error);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
     }
     return (
         <div className="hero w-full my-20">
@@ -46,7 +68,7 @@ export const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input type="text" name='password' placeholder="password" className="input input-bordered" />
+                            <input type="password" name='password' placeholder="password" className="input input-bordered" />
 
                         </div>
                         <div className="form-control mt-6">
@@ -55,6 +77,19 @@ export const SignUp = () => {
                     </form>
                     <p className='text-center '>Have an account <Link className='text-blue-600 hover:text-blue-700 font-bold' to="/signin">Login</Link> </p>
                 </div>
+            </div>
+            <div className="mt-4 mb-2 sm:mb-4">
+                <button onClick={handleGoogleSignIn}
+                    type="submit"
+                    className="bg-white w-full p-2 rounded-lg border border-blue-600"
+                >
+                    <div className='flex space-x-5 justify-around algin-iteam-center px-8'>
+                        <img className='w-8' src={img1} alt="" />
+                        <div className='text-xl'>
+                            SignIn with Google
+                        </div>
+                    </div>
+                </button>
             </div>
         </div>
     );
