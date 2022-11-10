@@ -9,7 +9,7 @@ const AddService = () => {
         const data = {
             title: form.name.value, description: form.details.value, picture: form.photoURL.value, price: form.price.value
         }
-        axios.post(`http://localhost:5000/service`, data).then(res => console.log(res))
+        axios.post(`https://rakibs-photography-server.vercel.app/service`, data).then(res => console.log(res))
         form.reset()
     }
     return (

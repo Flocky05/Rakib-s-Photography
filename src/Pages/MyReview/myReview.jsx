@@ -9,13 +9,13 @@ const MyReview = () => {
     const [reviews, setReviews] = useState([])
     useChangeTitle('My Review')
     useEffect(() => {
-        axios.get(`http://localhost:5000/reviews?email=${user?.email}`).then(res => setReviews(res.data)).catch(err => console.log(err))
+        axios.get(`https://rakibs-photography-server.vercel.app/reviews?email=${user?.email}`).then(res => setReviews(res.data)).catch(err => console.log(err))
     }, [user?.email])
     console.log(reviews);
     function handleDelete(id) {
         const sure = window.confirm('Are you sure')
         if (sure) {
-            axios.delete(`http://localhost:5000/review/${id}`).then(res => {
+            axios.delete(`https://rakibs-photography-server.vercel.app/review/${id}`).then(res => {
                 setReviews(p => p.filter(el => el._id !== id))
             })
 

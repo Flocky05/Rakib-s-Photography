@@ -13,7 +13,7 @@ const DetailPage = () => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        axios.post('http://localhost:5000/reviews', { name: user.displayName, email: user.email, message: name, service_id: _id, photoURL: user.photoURL }).then(res => console.log(res)).catch(err => console.log(err))
+        axios.post('https://rakibs-photography-server.vercel.app/reviews', { name: user.displayName, email: user.email, message: name, service_id: _id, photoURL: user.photoURL }).then(res => console.log(res)).catch(err => console.log(err))
         form.reset();
     }
     return (
@@ -50,7 +50,7 @@ export default DetailPage;
 const ShowReviews = ({ _id }) => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        axios.get(`http://localhost:5000/reviews/${_id}`).then(res => setReviews(res.data))
+        axios.get(`https://rakibs-photography-server.vercel.app/reviews/${_id}`).then(res => setReviews(res.data))
     }, [])
     return (<div className=''>
         {reviews?.map(el => <div className='border my-5 border-gray-400 flex flex-col mx-auto max-w-2xl rounded-lg p-10'>

@@ -11,7 +11,7 @@ export const Home = () => {
     useChangeTitle('Home')
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services?size=3`)
+        fetch(`https://rakibs-photography-server.vercel.app/services?size=3`)
             .then(res => res.json())
             .then(data => setServices(data));
     }, [])

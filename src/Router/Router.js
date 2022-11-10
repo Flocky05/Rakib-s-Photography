@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
             {
                 path: '/service/:id',
                 element: <DetailPage></DetailPage>,
-                loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`)
+                loader: ({ params }) => fetch(`https://rakibs-photography-server.vercel.app/service/${params.id}`)
             },
             {
                 path: '/myreviews',
