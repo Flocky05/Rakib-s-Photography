@@ -5,6 +5,7 @@ import img from "../../../images/Home/home.webp";
 import ServiceCard from "../Services/ServiceCard/ServiceCard";
 import { BeatLoader } from "react-spinners";
 import BlogPage from "../BlogPage/BlogPage";
+import AboutMe from "../../AboutMe/AboutMe";
 
 export const Home = () => {
   const [services, setServices] = useState([]);
@@ -91,6 +92,7 @@ export const Home = () => {
         </button>
       </div>
       <BlogPage></BlogPage>
+      <AboutMe></AboutMe>
     </div>
   );
 };
