@@ -7,6 +7,7 @@ import { BeatLoader } from "react-spinners";
 import BlogPage from "../BlogPage/BlogPage";
 import AboutMe from "../../AboutMe/AboutMe";
 import Page from "../Page/Page";
+import Team from "../Team/Team";
 
 export const Home = () => {
   const [services, setServices] = useState([]);
@@ -95,6 +96,7 @@ export const Home = () => {
       <BlogPage></BlogPage>
       <AboutMe></AboutMe>
       <Page></Page>
+      <Team></Team>
     </div>
   );
 };
