@@ -14,56 +14,66 @@ import PrivetRoute from "./PrivetRoute/PrivetRoute";
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Pages/Main/Main");
 export const router = createBrowserRouter([
-    {
-        path: '/',
-        element: <Main></Main>,
-        children: [
-            {
-                path: '/nav',
-                element: <Nav></Nav>
-            },
-            {
-                path: '/home',
-                element: <Home></Home>
-            },
-            {
-                path: '/footer',
-                element: <Footer></Footer>
-            },
-            {
-                path: '/signup',
-                element: <SignUp></SignUp>
-            },
-            {
-                path: '/signin',
-                element: <SignIn></SignIn>
-            },
-            {
-                path: '/blog',
-                element: <Blog></Blog>
-            },
-            {
-                path: '/services',
-                element: <Services></Services>
-            },
-            {
-                path: '/service/:id',
-                element: <DetailPage></DetailPage>,
-                loader: ({ params }) => fetch(`https://rakibs-photography-server.vercel.app/service/${params.id}`)
-            },
-            {
-                path: '/myreviews',
-                element: <PrivetRoute><MyReview></MyReview></PrivetRoute>
-            },
-            {
-                path: '/addservice',
-                element: <PrivetRoute><AddService></AddService></PrivetRoute>
-            },
-            {
-                path: '/aboutme',
-                element: <AboutMe></AboutMe>
-            }
-        ]
-
-    }
-])
+  {
+    path: "/",
+    element: <Main></Main>,
+    children: [
+      {
+        path: "/nav",
+        element: <Nav></Nav>,
+      },
+      {
+        path: "/home",
+        element: <Home></Home>,
+      },
+      {
+        path: "/footer",
+        element: <Footer></Footer>,
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>,
+      },
+      {
+        path: "/signin",
+        element: <SignIn></SignIn>,
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>,
+      },
+      {
+        path: "/services",
+        element: <Services></Services>,
+      },
+      {
+        path: "/service/:id",
+        element: <DetailPage></DetailPage>,
+        loader: ({ params }) =>
+          fetch(
+            `https://rakibs-photography-server.vercel.app/service/${params.id}`
+          ),
+      },
+      {
+        path: "/myreviews",
+        element: (
+          <PrivetRoute>
+            <MyReview></MyReview>
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/addservice",
+        element: (
+          <PrivetRoute>
+            <AddService></AddService>
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/aboutme",
+        element: <AboutMe></AboutMe>,
+      },
+    ],
+  },
+]);
