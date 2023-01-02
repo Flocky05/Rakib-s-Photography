@@ -8,6 +8,7 @@ import BlogPage from "../BlogPage/BlogPage";
 import AboutMe from "../../AboutMe/AboutMe";
 import Page from "../Page/Page";
 import Team from "../Team/Team";
+import Step from "../Step/Step";
 
 export const Home = () => {
   const [services, setServices] = useState([]);
@@ -93,10 +94,11 @@ export const Home = () => {
           </Link>
         </button>
       </div>
-      <BlogPage></BlogPage>
       <AboutMe></AboutMe>
+      <BlogPage></BlogPage>
       <Page></Page>
       <Team></Team>
+      <Step></Step>
     </div>
   );
 };
