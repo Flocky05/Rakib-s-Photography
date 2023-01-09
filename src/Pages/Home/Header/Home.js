@@ -12,6 +12,7 @@ import Step from "../Step/Step";
 import HomePage2 from "./HomePage2";
 import Destination from "../../Destination/Destination";
 import FAQ from "../../Blog/Blog";
+import Gallery from "../Gallary/Gallary";
 
 export const Home = () => {
   const [services, setServices] = useState([]);
@@ -55,6 +56,7 @@ export const Home = () => {
       <Team></Team>
       <Step></Step>
       <Destination></Destination>
+      <Gallery></Gallery>
       <FAQ></FAQ>
     </div>
   );
