@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useChangeTitle from "../../hooks/changeTitle";
+import BlogPart2 from "./BlogPart2";
 
 const Item = ({ title, children }) => {
   useChangeTitle("Blog");
@@ -129,6 +130,7 @@ const FAQ = () => {
           </Item>
         </div>
       </div>
+      <BlogPart2></BlogPart2>
     </div>
   );
 };
