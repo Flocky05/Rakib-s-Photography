@@ -10,6 +10,7 @@ import Page from "../Page/Page";
 import Team from "../Team/Team";
 import Step from "../Step/Step";
 import HomePage2 from "./HomePage2";
+import Destination from "../../Destination/Destination";
 
 export const Home = () => {
   const [services, setServices] = useState([]);
@@ -52,6 +53,7 @@ export const Home = () => {
       <AboutMe></AboutMe>
       <Team></Team>
       <Step></Step>
+      <Destination></Destination>
     </div>
   );
 };

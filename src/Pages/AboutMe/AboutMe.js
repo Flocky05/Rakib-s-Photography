@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import img from "../../images/me/me.jpg";
 import useChangeTitle from "../../hooks/changeTitle";
 import { Link } from "react-router-dom";
@@ -7,7 +6,11 @@ const AboutMe = () => {
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <img src={img} alt="" className="border border" />
+        <img
+          src={img}
+          alt=""
+          className="border-solid border-rounded border-2 border-cyan-700 rounded-md"
+        />
         <div>
           <h1 className="text-4xl font-semibold">Md.Rakibul Islam</h1>
           <p className="py-6">
@@ -28,7 +31,7 @@ const AboutMe = () => {
             supermodels as Christie Brinkley, Lisa Taylor, and the late Gia
             Carangi.
           </p>
-          <button className="btn btn-primary">
+          <button className="bg-blue-500 p-2 rounded-md text-white">
             <Link to="/signin">Get Started</Link>
           </button>
         </div>
