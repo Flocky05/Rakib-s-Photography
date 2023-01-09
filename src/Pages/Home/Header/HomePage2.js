@@ -3,7 +3,7 @@ import video from "../../../asests/video/dron.mp4";
 
 const HomePage2 = () => {
   return (
-    <div className=" my-8 py-4 hero">
+    <div className="hero">
       <video autoPlay loop muted playsInline className="w-full">
         <source src={video} />
       </video>
@@ -16,7 +16,7 @@ const HomePage2 = () => {
             with yo to capture your beautiful moments more and more
             beauutifully.Everything you can imagine is real.
           </p>
-          <button className="btn btn-primary">Get Started</button>
+          <button className="bg-blue-500 p-2 rounded-md">Get Started</button>
         </div>
       </div>
     </div>
