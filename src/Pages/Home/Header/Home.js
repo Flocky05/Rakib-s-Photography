@@ -11,6 +11,7 @@ import Team from "../Team/Team";
 import Step from "../Step/Step";
 import HomePage2 from "./HomePage2";
 import Destination from "../../Destination/Destination";
+import FAQ from "../../Blog/Blog";
 
 export const Home = () => {
   const [services, setServices] = useState([]);
@@ -54,6 +55,7 @@ export const Home = () => {
       <Team></Team>
       <Step></Step>
       <Destination></Destination>
+      <FAQ></FAQ>
     </div>
   );
 };
