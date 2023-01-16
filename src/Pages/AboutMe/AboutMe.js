@@ -1,15 +1,15 @@
-import img from "../../images/me/me.jpg";
+import img from "../../images/me/me.jpeg";
 import useChangeTitle from "../../hooks/changeTitle";
 import { Link } from "react-router-dom";
 const AboutMe = () => {
   useChangeTitle("About me");
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen bg-base-100">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <img
           src={img}
           alt=""
-          className="border-solid border-rounded border-2 border-cyan-700 rounded-md"
+          className="w-1/2 h-[35rem] border-solid border-rounded border-4 border-cyan-700 rounded-md"
         />
         <div>
           <h1 className="text-4xl font-semibold">Md.Rakibul Islam</h1>
