@@ -10,6 +10,7 @@ import Nav from "../Pages/Shared/Nav/Nav";
 import SignIn from "../Pages/SignIn/SignIn";
 import SignUp from "../Pages/SignUp/SignUP";
 import PrivetRoute from "./PrivetRoute/PrivetRoute";
+import Welcome from "../Pages/Blog/Welcome/welcome";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../Pages/Main/Main");
@@ -73,6 +74,10 @@ export const router = createBrowserRouter([
       {
         path: "/aboutme",
         element: <AboutMe></AboutMe>,
+      },
+      {
+        path: "/Welcome",
+        element: <Welcome></Welcome>,
       },
     ],
   },

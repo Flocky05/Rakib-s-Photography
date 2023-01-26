@@ -9,7 +9,7 @@ const AboutMe = () => {
         <img
           src={img}
           alt=""
-          className="w-1/2 h-[35rem] border-solid border-rounded border-4 border-cyan-700 rounded-md"
+          className="w-1/2 h-[35rem] sm:w-full border-solid border-rounded border-4 border-cyan-700 rounded-md"
         />
         <div>
           <h1 className="text-4xl font-semibold">Md.Rakibul Islam</h1>

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useChangeTitle from "../../hooks/changeTitle";
 import BlogPart2 from "./BlogPart2";
+import Welcome from "./Welcome/welcome";
 
 const Item = ({ title, children }) => {
   useChangeTitle("Blog");
@@ -45,6 +46,7 @@ const Item = ({ title, children }) => {
 const FAQ = () => {
   return (
     <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <Welcome></Welcome>
       <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
         <div class="flex flex-col mb-16 sm:text-center">
           <a href="/" class="mb-6 sm:mx-auto">
